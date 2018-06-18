@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel source/ -d lib/",
+    "flow": "flow",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --mode development",
     "test": "npm start",
     "webpack": "node ./node_modules/webpack/bin/webpack.js --mode production"
