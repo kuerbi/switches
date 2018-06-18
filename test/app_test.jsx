@@ -9,15 +9,15 @@ import Footer from "footer"
 
 describe("App component", () => {
   let wrapper;
-
+  
   beforeEach(() => {
     wrapper = shallow(<App />);
   });
-
+  
   it("shows one header component", () => {
     expect(wrapper.find(Header)).to.have.length(1);
   });
-
+  
   it("shows one footer", () => {
     expect(wrapper.find(Footer)).to.have.length(1);
   });
