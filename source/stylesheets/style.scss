@@ -1,3 +1,22 @@
+// config
+$header-height: 70px;
+$header-bg: #ffffff;
+
+$title-color: #909095;
+$title-font: sans-serif;
+
+// styles
+.header {
+  display: flex;
+  background-color: $header-bg;
+  height: $header-height;
+  align-items: center;
+  justify-content: center;
+}
+
 .title {
-  text-transform: uppercase
+  display: flex;
+  color: $title-color;
+  text-transform: uppercase;
+  font-family: $title-font;
 }
