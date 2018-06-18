@@ -4,6 +4,7 @@
   "description": "Browser based Switches",
   "main": "index.js",
   "scripts": {
+    "build": "babel source/ -d lib/",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --mode development",
     "test": "npm start",
     "webpack": "node ./node_modules/webpack/bin/webpack.js --mode production"
@@ -19,9 +20,11 @@
   },
   "homepage": "https://github.com/neopoly/switches",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
@@ -29,6 +32,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "file-loader": "^1.1.0",
+    "flow-bin": "^0.74.0",
     "mocha": "^5.2.0",
     "mocha-loader": "^1.1.0",
     "node-sass": "^4.9.0",
