@@ -1,14 +1,38 @@
 // config
+$game-width: 470px;
+$game-height: 490px;
+
 $header-height: 70px;
+$header-width: 100%;
 $header-bg: #ffffff;
 
 $title-color: #909095;
 $title-font: sans-serif;
 
+$game-shadow-color: rgba(0,0,0,0.32);
+
 // styles
+.game-wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  width: $game-width;
+  height: $game-height;
+
+  // shadow
+  -webkit-box-shadow: 0px 0px 4px 2px $game-shadow-color;
+  -moz-box-shadow: 0px 0px 4px 2px $game-shadow-color;
+  box-shadow: 0px 0px 4px 2px $game-shadow-color;
+}
+
 .header {
   display: flex;
   background-color: $header-bg;
+  width: $header-width;
   height: $header-height;
   align-items: center;
   justify-content: center;
