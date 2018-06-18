@@ -1,17 +1,26 @@
 import React, { Component } from "react"
+import { Provider } from "react-redux"
+import { createStore } from "redux"
+import reducer from "reducers"
 
 import Header from "header"
 import Footer from "footer"
 
+const initialState = {
+  gameState: "not_running"
+}
+
 export default class App extends Component {
   render() {
     return (
-      <div class={"game-wrapper"}>
-        <div class={"game"}>
-          <Header></Header>
-          <Footer></Footer>
+      <Provider store={createStore(reducer, initialState)}>
+        <div className={"game-wrapper"}>
+          <div className={"game"}>
+            <Header></Header>
+            <Footer></Footer>
+          </div>
         </div>
-      </div>
+      </Provider>
     )
   }
 }
