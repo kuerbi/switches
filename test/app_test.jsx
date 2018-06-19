@@ -5,8 +5,7 @@ import { shallow } from "enzyme"
 import App from "app"
 import Header from "header"
 import Footer from "footer"
-// todo: import GameField from... when gamefield export the connected component
-import { GameField } from "gamefield" 
+import GameField from "gamefield" 
 
 describe("App component", () => {
   let wrapper;

@@ -5,8 +5,7 @@ import reducer from "reducers"
 
 import Header from "header"
 import Footer from "footer"
-// todo: import GameField from... when gamefield export the connected component
-import { GameField } from "gamefield" 
+import GameField from "gamefield" 
 
 const initialState = {
   gameState: "not_running"
