@@ -8,7 +8,7 @@ import Footer from "footer"
 import GameField from "gamefield" 
 
 const initialState = {
-  gameState: "not_running"
+  game: "not_running"
 }
 
 export default class App extends Component {

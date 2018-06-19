@@ -3,11 +3,11 @@ import { connect } from "react-redux"
 
 export class Header extends Component {
   renderTitle() {
-      const { gameState } = this.props;
+      const { game } = this.props;
 
-      if (gameState === "not_running") {
+      if (game === "not_running") {
           return "Switches"
-      } else if(gameState === "running") {
+      } else if(game === "running") {
           return "Tap a switch"
       }
   }
@@ -23,7 +23,7 @@ export class Header extends Component {
 
 function mapStateToProps(state) {
     return {
-        gameState: state.gameState
+        game: state.game
     }
 }
 

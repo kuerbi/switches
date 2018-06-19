@@ -1,11 +1,11 @@
 import switchesReducer from "reducers/switches"
-import gameStateReducer from "reducers/gameState"
+import gameReducer from "reducers/game"
 
 import { combineReducers } from "redux"
 
 const rootReducer = combineReducers({
-    gameState: gameStateReducer,
-    switches: switchesReducer
+    game: gameReducer,
+    fields: switchesReducer
 });
 
 export default rootReducer;
