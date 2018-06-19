@@ -1,6 +1,6 @@
 // config
 $game-width: 470px;
-$game-height: 490px;
+$game-height: 536px;
 
 $header-height: 70px;
 $header-width: 100%;
@@ -11,12 +11,11 @@ $title-font: sans-serif;
 
 $gamefield-rows: 5;
 $gamefield-columns: 5;
-$gamefield-bg: #e7e7ea;
+$gamefield-grid-color: #e7e7ea;
 $gamefield-gap: 5px;
 
 $pattern-size: 65px;
-$pattern-bg: #ffffff;
-
+$pattern-bg: #ececee;
 
 
 $game-shadow-color: rgba(0,0,0,0.32);
@@ -61,17 +60,20 @@ $button-radius: 30px;
   display: grid;
   width: (($pattern-size + $gamefield-gap) * $gamefield-columns) - $gamefield-gap;
   height: ($pattern-size + $gamefield-gap) * $gamefield-rows;
-  background-color: $gamefield-bg;
+  background-color: $gamefield-grid-color;
 
   // $pattern-size
   grid-template-columns: 65px 65px 65px 65px 65px;
   grid-gap: $gamefield-gap;
-  border: $gamefield-gap solid $gamefield-bg;
+  border: $gamefield-gap solid $gamefield-grid-color;
 }
 
 .gameField-wrapper {
   display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
   justify-content: center;
+  background-color: $pattern-bg
 }
 
 .pattern {
