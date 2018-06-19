@@ -21,6 +21,8 @@ $pattern-bg: #ffffff;
 
 $game-shadow-color: rgba(0,0,0,0.32);
 
+$button-radius: 30px;
+
 // styles
 .game-wrapper {
   display: flex;
@@ -69,7 +71,6 @@ $game-shadow-color: rgba(0,0,0,0.32);
 
 .gameField-wrapper {
   display: flex;
-  height: 100%;
   justify-content: center;
 }
 
@@ -81,4 +82,23 @@ $game-shadow-color: rgba(0,0,0,0.32);
 
 .pattern--on {
   background-color: #8a85be;
+}
+
+.button {
+  background-color: #2fc0a6;
+  color: #ffffff;
+  text-transform: uppercase;
+
+  height: 43px;
+  width: 185px;
+
+  border-radius: $button-radius;
+  outline: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 67px;
 }

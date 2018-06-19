@@ -3,7 +3,9 @@ import React, { Component } from "react"
 export default class Footer extends Component {
   render() {
     return (
-      <div></div>
+      <div className={"footer"}>
+        <button className={"button"}>New game</button>
+      </div>
     )
   }
 }
