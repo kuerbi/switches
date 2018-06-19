@@ -18,9 +18,26 @@ export function restartGame() {
   }
 }
 
+// TODO: Test it
+export function toggleSwitchIfGameIsRunning() {
+  return (dispatch, getState) => {
+    const { game } = getState();
+
+    if(game != "running") {
+      return;
+    };
+
+    dispatch({
+      type: TOGGLE_SWITCH,
+      payload: { row, column }
+    });
+  }
+}
+
 export function toggleSwitch(row, column) {
   return {
     type: TOGGLE_SWITCH,
     payload: { row, column }
-  }
+  };
 }
+

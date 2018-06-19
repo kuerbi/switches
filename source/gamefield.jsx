@@ -1,7 +1,7 @@
 //@flow
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { toggleSwitch } from "actions"
+import { toggleSwitchIfGameIsRunning } from "actions"
 
 // TODO: set props correct
 type Props = {
@@ -45,7 +45,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    toggleSwitch: (r,c) => dispatch(toggleSwitch(r,c))
+    toggleSwitch: (r,c) => dispatch(toggleSwitchIfGameIsRunning(r,c))
   }
 }
 
