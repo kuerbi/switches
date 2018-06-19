@@ -11,7 +11,7 @@ import { startingPatterns } from "constants/patterns"
 
 const initialState = {
   game: "not_running",
-  fields: startingPatterns[2]
+  fields: startingPatterns[0]
 }
 
 export default class App extends Component {
