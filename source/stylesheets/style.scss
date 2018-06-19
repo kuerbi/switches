@@ -49,6 +49,11 @@ $button-radius: 30px;
   justify-content: center;
 }
 
+.action {
+  text-transform: uppercase;
+  color: #e390c3
+}
+
 .title {
   display: flex;
   color: $title-color;

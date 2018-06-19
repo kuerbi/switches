@@ -14,10 +14,19 @@ describe("Header component", () => {
   });
   
   context("when game is running", () => {
-    it("displays the correct title", () => {
-      const wrapper = shallow(<Header game={"running"}/>);
-      
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<Header game={"running"}/>);
+    });
+
+    it("displays the correct title", () => {      
       expect(wrapper.find("h1").text()).equal("Tap a switch");
+    });
+
+    // TODO:
+    it("shows abort link", () => {
+      // expect(wrapper.find(".button .button--action").text()).equal("Abort");
     });
   });
 });
