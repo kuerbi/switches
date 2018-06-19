@@ -4,7 +4,7 @@ import { toggleSwitch, newGame } from "actions"
 import { TOGGLE_SWITCH, NEW_GAME } from "constants/actionTypes"
 
 describe("Actions", () => {
-  it("handle TOGGLE_SWITCH", () => {
+  it("toggleSwitch", () => {
     const row = 2;
     const column = 3;
     
@@ -14,7 +14,7 @@ describe("Actions", () => {
     });
   });
 
-  it("handle NEW_GAME", () => {
+  it("newGame", () => {
     expect(newGame()).to.deep.equal({
       type: NEW_GAME
     });
