@@ -1,6 +1,7 @@
 import { expect } from "chai"
 import gameReducer from "reducers/game"
 import switchesReducer from "reducers/switches"
+import counterReducer from "reducers/counter"
 import { newGame, toggleSwitch } from "actions"
 
 describe("game reducer", () => {
@@ -48,5 +49,16 @@ describe("switches reducer", () => {
     const newState = switchesReducer(state1, newGame());
 
     expect(newState).not.eql([]);
+  });
+});
+
+describe("counter reducer", () => {
+  it("should handle TOGGLE_SWITCH increment values", () => {
+    expect(counterReducer(0, toggleSwitch())).equal(1);
+    expect(counterReducer(1, toggleSwitch())).equal(2);
+  });
+
+  it("should handle NEW_GAME reset the counter", () => {
+    expect(counterReducer(4, newGame())).equal(0);
   });
 });
