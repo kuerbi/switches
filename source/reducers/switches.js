@@ -1,5 +1,5 @@
 export default function switchesReducer(state = [], action) {
-  switch(state) {
+  switch(action.type) {
     default:
       return state;
   }
