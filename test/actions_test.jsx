@@ -1,7 +1,7 @@
 import { expect } from "chai"
 
-import { toggleSwitch, newGame } from "actions"
-import { TOGGLE_SWITCH, NEW_GAME } from "constants/actionTypes"
+import { toggleSwitch, newGame, abortGame, restartGame } from "actions"
+import { TOGGLE_SWITCH, NEW_GAME, ABORT_GAME, RESTART_GAME } from "constants/actionTypes"
 
 describe("Actions", () => {
   it("toggleSwitch", () => {
@@ -19,4 +19,17 @@ describe("Actions", () => {
       type: NEW_GAME
     });
   });
+
+  it("abortGame", () => {
+    expect(abortGame()).to.deep.equal({
+      type: ABORT_GAME
+    });
+  });
+
+  it("restartGame", () => {
+    expect(restartGame()).to.deep.equal({
+      type: RESTART_GAME
+    });
+  });
+
 });

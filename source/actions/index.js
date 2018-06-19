@@ -1,8 +1,20 @@
-import { TOGGLE_SWITCH, NEW_GAME } from "constants/actionTypes"
+import { TOGGLE_SWITCH, NEW_GAME, ABORT_GAME, RESTART_GAME } from "constants/actionTypes"
 
 export function newGame() {
   return {
     type: NEW_GAME
+  }
+}
+
+export function abortGame() {
+  return {
+    type: ABORT_GAME
+  }
+}
+
+export function restartGame() {
+  return {
+    type: RESTART_GAME
   }
 }
 
