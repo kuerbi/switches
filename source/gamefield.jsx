@@ -19,8 +19,10 @@ export class GameField extends Component<Props> {
     }
 
     return (
-      <div>
-        {patterns}
+      <div className={"gameField-wrapper"}>
+        <div className={"gameField"}>
+          {patterns}
+        </div>
       </div>
     )
   }

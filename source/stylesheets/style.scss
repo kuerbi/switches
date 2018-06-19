@@ -9,6 +9,16 @@ $header-bg: #ffffff;
 $title-color: #909095;
 $title-font: sans-serif;
 
+$gamefield-rows: 5;
+$gamefield-columns: 5;
+$gamefield-bg: #e7e7ea;
+$gamefield-gap: 5px;
+
+$pattern-size: 65px;
+$pattern-bg: #ffffff;
+
+
+
 $game-shadow-color: rgba(0,0,0,0.32);
 
 // styles
@@ -43,4 +53,28 @@ $game-shadow-color: rgba(0,0,0,0.32);
   color: $title-color;
   text-transform: uppercase;
   font-family: $title-font;
+}
+
+.gameField {
+  display: grid;
+  width: (($pattern-size + $gamefield-gap) * $gamefield-columns) - $gamefield-gap;
+  height: ($pattern-size + $gamefield-gap) * $gamefield-rows;
+  background-color: $gamefield-bg;
+
+  // $pattern-size
+  grid-template-columns: 65px 65px 65px 65px 65px;
+  grid-gap: $gamefield-gap;
+  border: $gamefield-gap solid $gamefield-bg;
+}
+
+.gameField-wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.pattern {
+  width: $pattern-size;
+  height: $pattern-size;
+  background-color: $pattern-bg;
 }
