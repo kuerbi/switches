@@ -5,10 +5,13 @@ import reducer from "reducers"
 
 import Header from "header"
 import Footer from "footer"
-import GameField from "gamefield" 
+import GameField from "gamefield"
+
+import { startingPatterns } from "constants/patterns"
 
 const initialState = {
-  game: "not_running"
+  game: "not_running",
+  fields: startingPatterns[2]
 }
 
 export default class App extends Component {

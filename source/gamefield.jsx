@@ -1,15 +1,14 @@
 //@flow
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import { toggleSwitch } from "actions"
 
+// TODO: set props correct
 type Props = {
-  fields: any
+  fields: any,
+  toggleSwitch: any
 };
 export class GameField extends Component<Props> {
-  onFieldClick(r: number, c: number) {
-    console.log("click on field", r, c);
-  }
-
   render() {
     const { fields } = this.props;
 
@@ -21,7 +20,7 @@ export class GameField extends Component<Props> {
           <div 
             key={"pattern_" + r + c} 
             className={"pattern" + ((fields[r][c] == 1) ? " pattern--on":"")} 
-            onClick={this.onFieldClick.bind(this, r, c)}>
+            onClick={this.props.toggleSwitch.bind(this, r, c)}>
           </div>
         );
       }
@@ -40,14 +39,14 @@ export class GameField extends Component<Props> {
 function mapStateToProps(state) {
   return {
     // dummy implementation
-    fields: [
-      [0,0,0,0,0],
-      [0,1,1,1,0],
-      [0,1,0,1,0],
-      [0,1,1,1,0],
-      [0,0,0,0,0]
-    ]
+    fields: state.fields
   }
 }
 
-export default connect(mapStateToProps)(GameField);
+function mapDispatchToProps(dispatch) {
+  return {
+    toggleSwitch: (r,c) => dispatch(toggleSwitch(r,c))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameField);
