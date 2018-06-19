@@ -11,22 +11,19 @@ describe("game reducer", () => {
   it("should handle NEW_GAME", () => {
     expect(gameReducer("not_running", newGame())).equal("running");
   });
-
-
 });
 
 describe("switches reducer", () => {
+  const state1 = [
+    [0,0,0,0,0],
+    [0,1,1,1,0],
+    [0,1,0,1,0],
+    [0,1,1,1,0],
+    [0,0,0,0,0]
+  ];
+
   it("should handle TOGGLE_SWITCH", () => {
     // todo: we need more test cases especially from the corners
-
-    const state1 = [
-      [0,0,0,0,0],
-      [0,1,1,1,0],
-      [0,1,0,1,0],
-      [0,1,1,1,0],
-      [0,0,0,0,0]
-    ];
-
     const newState1 = switchesReducer(state1, toggleSwitch(1,1));
 
     expect(newState1).eql([
@@ -44,5 +41,12 @@ describe("switches reducer", () => {
       [0,1,1,1,0],
       [0,0,0,0,0]
     ]);
+  });
+
+  // TODO: Mmmm improve this please
+  it("should handle NEW_GAME", () => {
+    const newState = switchesReducer(state1, newGame());
+
+    expect(newState).not.eql([]);
   });
 });

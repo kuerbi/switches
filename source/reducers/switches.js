@@ -1,7 +1,14 @@
-import { TOGGLE_SWITCH } from "constants/actionTypes"
+import { TOGGLE_SWITCH, NEW_GAME } from "constants/actionTypes"
+import { startingPatterns } from "constants/patterns"
 
 export default function switchesReducer(state = [], action) {
   switch(action.type) {
+    case NEW_GAME: {
+      const r = 1 + Math.floor(Math.random() * (startingPatterns.length - 1));
+
+      return startingPatterns[r];
+    } break;
+
     case TOGGLE_SWITCH: {
       const { row, column } = action.payload
 
