@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Provider } from "react-redux"
-import { createStore } from "redux"
+import { createStore, applyMiddleware } from "redux"
+import thunk from "redux-thunk"
 import reducer from "reducers"
 
 import Header from "header"
@@ -14,10 +15,16 @@ const initialState = {
   fields: startingPatterns[0]
 }
 
+const store = createStore(
+  reducer, 
+  initialState,
+  applyMiddleware(thunk)
+);
+
 export default class App extends Component {
   render() {
     return (
-      <Provider store={createStore(reducer, initialState)}>
+      <Provider store={store}>
         <div className={"game-wrapper"}>
           <div className={"game"}>
             <Header></Header>
