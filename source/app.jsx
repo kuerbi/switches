@@ -4,9 +4,9 @@ import { createStore, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
 import reducer from "reducers"
 
-import Header from "header"
-import Footer from "footer"
-import GameField from "gamefield"
+import Header from "components/header"
+import Footer from "components/footer"
+import GameField from "components/gamefield"
 
 import { startingPatterns } from "constants/patterns"
 
@@ -20,7 +20,7 @@ const initialState = {
 }
 
 const store = createStore(
-  reducer, 
+  reducer,
   initialState,
   applyMiddleware(thunk)
 );

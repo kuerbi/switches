@@ -2,6 +2,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { abortGame, restartGame } from "actions"
+import type { GameState } from "reducers/game";
 
 type Props = {
   game: any;
@@ -34,7 +35,7 @@ export class Header extends Component<Props> {
   }
 
   renderHeaderRight() {
-    const { game } = this.props;
+    const game: GameState = this.props.game;
 
     switch(game) {
       case "not_running": {

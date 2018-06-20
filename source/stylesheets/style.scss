@@ -7,7 +7,6 @@ $header-width: 100%;
 $header-bg: #ffffff;
 
 $title-color: #909095;
-$title-font: sans-serif;
 
 $gamefield-rows: 5;
 $gamefield-columns: 5;
@@ -21,6 +20,10 @@ $pattern-bg: #ececee;
 $game-shadow-color: rgba(0,0,0,0.32);
 
 $button-radius: 30px;
+
+body, html {
+  font-family: sans-serif;
+}
 
 // styles
 .game-wrapper {
@@ -41,12 +44,18 @@ $button-radius: 30px;
 }
 
 .header {
+  position: relative;
   display: flex;
   background-color: $header-bg;
   width: $header-width;
   height: $header-height;
   align-items: center;
   justify-content: center;
+}
+
+.header__right {
+  position: absolute;
+  right: 20px;
 }
 
 .action {
@@ -58,7 +67,6 @@ $button-radius: 30px;
   display: flex;
   color: $title-color;
   text-transform: uppercase;
-  font-family: $title-font;
 }
 
 .gameField {
@@ -105,6 +113,8 @@ $button-radius: 30px;
 
   border-radius: $button-radius;
   outline: none;
+
+  font-size: 1.3em;
 }
 
 .footer {
@@ -116,4 +126,6 @@ $button-radius: 30px;
 
 .footer__text {
   text-transform: uppercase;
+  font-size: 1.7em;
+  color: #cecece;
 }

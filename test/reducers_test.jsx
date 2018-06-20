@@ -4,7 +4,7 @@ import switchesReducer from "reducers/switches"
 import counterReducer from "reducers/counter"
 import { newGame, toggleSwitch, playerWins } from "actions"
 
-describe("game reducer", () => {
+describe("Game reducer", () => {
   it("should return initial state", () => {
     expect(gameReducer(undefined, {})).equal("not_running");
   });
@@ -18,14 +18,17 @@ describe("game reducer", () => {
   });
 });
 
-describe("switches reducer", () => {
-  const state1 = [
-    [0,0,0,0,0],
-    [0,1,1,1,0],
-    [0,1,0,1,0],
-    [0,1,1,1,0],
-    [0,0,0,0,0]
-  ];
+describe("Switches reducer", () => {
+  const state1 = {
+    patternId: 1,
+    switches: [
+      [0,0,0,0,0],
+      [0,1,1,1,0],
+      [0,1,0,1,0],
+      [0,1,1,1,0],
+      [0,0,0,0,0]
+    ]
+  }
 
   it("should handle TOGGLE_SWITCH", () => {
     // todo: we need more test cases especially from the corners

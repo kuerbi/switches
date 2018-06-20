@@ -1,28 +1,24 @@
 import React from "react"
 import { expect } from "chai"
 import { mount } from "enzyme"
-import { GameField } from "gamefield"
+import { GameField } from "components/gamefield"
 import { startingPatterns } from "constants/patterns"
 
 describe("Gamefield component", () => {
   let wrapper;
 
-  function setup() {
+  function wrapperMaker() {
     const props = {
-      fields: startingPatterns[0],
+      switches: startingPatterns[0],
       // TODO: use something like jest.fn()
-      toggleSwitch: (r,c) => {}
+      move: (r,c) => {}
     }
 
-    let wrapper = mount(<GameField {...props}/>);
-
-    return {
-      wrapper
-    }
-  }
+    return mount(<GameField {...props}/>);
+  } 
 
   beforeEach(() => {
-    wrapper = setup().wrapper;
+    wrapper = wrapperMaker();
   })
 
   it("shows 25 switches", () => {

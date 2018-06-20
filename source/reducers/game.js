@@ -1,17 +1,20 @@
+//@flow
 import { NEW_GAME, ABORT_GAME, WIN_GAME, RESTART_GAME } from "constants/actionTypes"
 
-export default function gameReducer(state = "not_running", action) {
+export type GameState = "not_running" | "running" | "victory";
+
+export default function gameReducer(state: GameState = "not_running", action: any) {
   switch(action.type) {
     case WIN_GAME: {
       return "victory"
-    } break;
+    };
     case ABORT_GAME: {
       return "not_running"
-    } break;
+    };
     case NEW_GAME:
     case RESTART_GAME: {
       return "running"
-    } break;
+    };
     default:
       return state;
   }

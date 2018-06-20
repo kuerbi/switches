@@ -2,15 +2,16 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { newGame } from "actions"
+import type { GameState } from "reducers/game"
 
 type Props = {
-  game: any,
+  game: GameState,
   counter: number,
-  newGame: any
+  newGame: () => void
 }
 export class Footer extends Component<Props> {
   renderButtonOrButtonsPressed() {
-    const { game } = this.props;
+    const game: GameState = this.props.game;
 
     if(game === "not_running") {
       return <button className={"button"} onClick={this.props.newGame}>New game</button>

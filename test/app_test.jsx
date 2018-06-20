@@ -3,9 +3,9 @@ import { expect } from "chai"
 import { shallow } from "enzyme"
 
 import App from "app"
-import Header from "header"
-import Footer from "footer"
-import GameField from "gamefield" 
+import Header from "components/header"
+import Footer from "components/footer"
+import GameField from "components/gamefield" 
 
 describe("App component", () => {
   let wrapper;

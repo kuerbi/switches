@@ -2,7 +2,7 @@ import React from "react"
 import { expect } from "chai"
 import { shallow } from "enzyme"
 
-import { Footer } from "header"
+import { Footer } from "components/footer"
 
 describe("Footer component", () => {
   context("when game is not running", () => {
