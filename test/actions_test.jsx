@@ -1,6 +1,8 @@
 import { expect } from "chai"
+import configureStore from "redux-mock-store"
+import thunk from "redux-thunk"
 
-import { toggleSwitch, newGame, abortGame, restartGame } from "actions"
+import { toggleSwitch, newGame, abortGame, restartGame, move, playerWins } from "actions"
 import { TOGGLE_SWITCH, NEW_GAME, ABORT_GAME, RESTART_GAME } from "constants/actionTypes"
 
 describe("Actions", () => {
@@ -31,5 +33,45 @@ describe("Actions", () => {
       type: RESTART_GAME
     });
   });
+});
 
+
+describe("move action", () => {
+  const middlewares = [thunk];
+  const mockStore = configureStore(middlewares);
+
+  describe("when game is not running", () => {
+    it("dispatch nothing", () => {
+      const initialState = {
+        game: "not_running"
+      };
+
+      const store = mockStore(initialState);
+      store.dispatch(move(2,2));
+
+      expect(store.getActions()).eql([]);
+    });
+  });
+
+  describe("when game is running", () => {
+    it("dispatch toggleSwitch action", () => {
+      const initialState = {
+        game: "running",
+        fields: [
+          [0,0,0,0,0],
+          [0,1,1,1,0],
+          [0,1,0,1,0],
+          [0,1,1,1,0],
+          [0,0,0,0,0]
+        ]
+      };
+  
+      const store = mockStore(initialState);
+      store.dispatch(move(2,2));
+
+      expect(store.getActions()).eql([
+        toggleSwitch(2,2)
+      ]);
+    });
+  });
 });

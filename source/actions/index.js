@@ -1,4 +1,10 @@
-import { TOGGLE_SWITCH, NEW_GAME, ABORT_GAME, RESTART_GAME } from "constants/actionTypes"
+import { 
+  TOGGLE_SWITCH, 
+  NEW_GAME, 
+  ABORT_GAME, 
+  RESTART_GAME, 
+  PLAYER_WINS
+} from "constants/actionTypes"
 
 export function newGame() {
   return {
@@ -18,16 +24,11 @@ export function restartGame() {
   }
 }
 
-// TODO: Test it
-export function toggleSwitchIfGameIsRunning(row, column) {
+export function move(row, column) {
   return (dispatch, getState) => {
-    const { game } = getState();
-
-    if(game != "running") {
-      return;
-    };
-
-    dispatch(toggleSwitch(row,column));
+    if(getState().game != "running") return;
+    
+    dispatch(toggleSwitch(row, column));
   }
 }
 
@@ -36,4 +37,10 @@ export function toggleSwitch(row, column) {
     type: TOGGLE_SWITCH,
     payload: { row, column }
   };
+}
+
+export function playerWins() {
+  return {
+    type: PLAYER_WINS
+  }
 }

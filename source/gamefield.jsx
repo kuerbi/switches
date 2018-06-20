@@ -1,14 +1,38 @@
 //@flow
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { toggleSwitchIfGameIsRunning } from "actions"
+import { move, playerWins } from "actions"
 
 // TODO: set props correct
 type Props = {
   fields: any,
-  toggleSwitch: any
+  move: any,
+  playerWins: any
 };
 export class GameField extends Component<Props> {
+  handlePlayerTurn(r: number,c: number) {
+    this.props.move(r,c);
+  }
+
+  checkPlayerWin(fields: any): boolean {
+    for(let r = 0; r < fields.length; r++) {
+      for(let c = 0; c < fields[0].length; c++) {
+        if(fields[r][c] === 0) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  // TODO: Test
+  componentDidUpdate(prevProps: Props) {
+    if(this.checkPlayerWin(this.props.fields)) {
+      this.props.playerWins();
+    }
+  }
+
   render() {
     const { fields } = this.props;
 
@@ -20,7 +44,7 @@ export class GameField extends Component<Props> {
           <div 
             key={"pattern_" + r + c} 
             className={"pattern" + ((fields[r][c] == 1) ? " pattern--on":"")} 
-            onClick={this.props.toggleSwitch.bind(this, r, c)}>
+            onClick={this.handlePlayerTurn.bind(this, r, c)}>
           </div>
         );
       }
@@ -38,14 +62,14 @@ export class GameField extends Component<Props> {
 
 function mapStateToProps(state) {
   return {
-    // dummy implementation
     fields: state.fields
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    toggleSwitch: (r,c) => dispatch(toggleSwitchIfGameIsRunning(r,c))
+    move: (r,c) => dispatch(move(r,c)),
+    playerWins: () => dispatch(playerWins())
   }
 }
 
