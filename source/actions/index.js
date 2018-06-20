@@ -3,7 +3,7 @@ import {
   NEW_GAME, 
   ABORT_GAME, 
   RESTART_GAME, 
-  PLAYER_WINS
+  WIN_GAME
 } from "constants/actionTypes"
 
 export function newGame() {
@@ -41,6 +41,6 @@ export function toggleSwitch(row, column) {
 
 export function playerWins() {
   return {
-    type: PLAYER_WINS
+    type: WIN_GAME
   }
 }
