@@ -24,12 +24,4 @@ describe("Gamefield component", () => {
   it("shows 25 switches", () => {
     expect(wrapper.find(".pattern")).to.have.length(25);
   });
-
-  it("checkPlayerWin", () => {
-    const inst = wrapper.instance();
-
-    expect(inst.checkPlayerWin([[1,1,1,1,1]])).equal(true);
-    expect(inst.checkPlayerWin([[1,1,1,1,0]])).equal(false);
-  });
-
 });

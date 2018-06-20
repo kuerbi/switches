@@ -43,7 +43,11 @@ describe("move action", () => {
   describe("when game is not running", () => {
     it("dispatch nothing", () => {
       const initialState = {
-        game: "not_running"
+        game: "not_running",
+        fields: {
+          patternId: 0,
+          switches: [[1]]
+        },
       };
 
       const store = mockStore(initialState);
@@ -57,13 +61,16 @@ describe("move action", () => {
     it("dispatch toggleSwitch action", () => {
       const initialState = {
         game: "running",
-        fields: [
-          [0,0,0,0,0],
-          [0,1,1,1,0],
-          [0,1,0,1,0],
-          [0,1,1,1,0],
-          [0,0,0,0,0]
-        ]
+        fields: {
+          patternId: 0,
+          switches: [
+            [0,0,0,0,0],
+            [0,1,1,1,0],
+            [0,1,0,1,0],
+            [0,1,1,1,0],
+            [0,0,0,0,0]
+          ]
+        }
       };
   
       const store = mockStore(initialState);

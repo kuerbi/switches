@@ -16,25 +16,6 @@ export class GameField extends Component<Props> {
     this.props.move(r,c);
   }
 
-  checkPlayerWin(switches: any): boolean {
-    for(let r = 0; r < switches.length; r++) {
-      for(let c = 0; c < switches[0].length; c++) {
-        if(switches[r][c] === 0) {
-          return false;
-        }
-      }
-    }
-
-    return true;
-  }
-
-  // TODO: Test
-  componentDidUpdate(prevProps: Props) {
-    if(this.checkPlayerWin(this.props.switches)) {
-      this.props.playerWins();
-    }
-  }
-
   render() {
     const { switches, game } = this.props;
 
