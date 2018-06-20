@@ -2,7 +2,7 @@ import { expect } from "chai"
 import gameReducer from "reducers/game"
 import switchesReducer from "reducers/switches"
 import counterReducer from "reducers/counter"
-import { newGame, toggleSwitch } from "actions"
+import { newGame, toggleSwitch, playerWins } from "actions"
 
 describe("game reducer", () => {
   it("should return initial state", () => {
@@ -11,6 +11,10 @@ describe("game reducer", () => {
 
   it("should handle NEW_GAME", () => {
     expect(gameReducer("not_running", newGame())).equal("running");
+  });
+
+  it("should handle WIN_GAME", () => {
+    expect(gameReducer("not_running", playerWins())).equal("victory");
   });
 });
 

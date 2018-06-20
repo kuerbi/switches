@@ -5,6 +5,7 @@ import { move, playerWins } from "actions"
 
 // TODO: set props correct
 type Props = {
+  game: any,
   fields: any,
   move: any,
   playerWins: any
@@ -34,7 +35,7 @@ export class GameField extends Component<Props> {
   }
 
   render() {
-    const { fields } = this.props;
+    const { fields, game } = this.props;
 
     let patterns = [];
 
@@ -43,7 +44,7 @@ export class GameField extends Component<Props> {
         patterns.push(
           <div 
             key={"pattern_" + r + c} 
-            className={"pattern" + ((fields[r][c] == 1) ? " pattern--on":"")} 
+            className={"pattern" + (fields[r][c] == 1 ? " pattern--on":"") + (game == "victory" ? " pattern--victory":"")} 
             onClick={this.handlePlayerTurn.bind(this, r, c)}>
           </div>
         );
@@ -62,6 +63,7 @@ export class GameField extends Component<Props> {
 
 function mapStateToProps(state) {
   return {
+    game: state.game,
     fields: state.fields
   }
 }

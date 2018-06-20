@@ -15,6 +15,8 @@ export class Header extends Component<Props> {
       return "Switches"
     } else if(game === "running") {
       return "Tap a switch"
+    } else if(game === "victory") {
+      return "Victory"
     }
   }
 

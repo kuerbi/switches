@@ -4,16 +4,18 @@ import { connect } from "react-redux"
 import { newGame } from "actions"
 
 type Props = {
-  game: any;
-  counter: number;
+  game: any,
+  counter: number,
   newGame: any
 }
 export class Footer extends Component<Props> {
   renderButtonOrButtonsPressed() {
-    if(this.props.game == "running") {
-      return <span className={"footer__text"}>{this.props.counter + " buttons pressed"}</span>
-    } else {
+    const { game } = this.props;
+
+    if(game === "not_running") {
       return <button className={"button"} onClick={this.props.newGame}>New game</button>
+    } else {
+      return <span className={"footer__text"}>{this.props.counter + " buttons pressed"}</span>
     }
   }
 
