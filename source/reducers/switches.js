@@ -1,22 +1,27 @@
 import { TOGGLE_SWITCH, NEW_GAME, ABORT_GAME } from "constants/actionTypes"
 import { startingPatterns } from "constants/patterns"
+import { RESTART_GAME } from "../constants/actionTypes";
 
-export default function switchesReducer(state = [], action) {
+export default function switchesReducer(state = { patternId: 0, switches: [] }, action) {
   switch(action.type) {
     case ABORT_GAME: {
-      return startingPatterns[0];
-    } break;
+      return { switches: startingPatterns[0], patternId: 0 }
+    };
 
     case NEW_GAME: {
-      const r = 1 + Math.floor(Math.random() * (startingPatterns.length - 1));
+      const patternId = 1 + Math.floor(Math.random() * (startingPatterns.length - 1));
 
-      return startingPatterns[r];
-    } break;
+      return { switches: startingPatterns[patternId], patternId }
+    };
+
+    case RESTART_GAME: {
+      return { switches: startingPatterns[state.patternId], patternId: state.patternId }
+    }
 
     case TOGGLE_SWITCH: {
       const { row, column } = action.payload
 
-      return state.map((rows, rowIndex) => rows.map((columns, columnIndex) => {
+      const switches = state.switches.map((rows, rowIndex) => rows.map((columns, columnIndex) => {
         if(
           (rowIndex === row && columnIndex === column) ||
           (rowIndex-1 === row && columnIndex === column) ||
@@ -28,7 +33,9 @@ export default function switchesReducer(state = [], action) {
 
         return columns;
       }));
-    } break;
+
+      return { switches, patternId: state.patternId }
+    };
     default:
       return state;
   }

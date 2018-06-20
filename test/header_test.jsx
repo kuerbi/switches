@@ -29,4 +29,17 @@ describe("Header component", () => {
       // expect(wrapper.find(".button .button--action").text()).equal("Abort");
     });
   });
+
+  context("when game is won", () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<Header game={"victory"}/>);
+    });
+
+    it("displays the correct title", () => {      
+      expect(wrapper.find("h1").text()).equal("Victory");
+    });
+
+  });
 });

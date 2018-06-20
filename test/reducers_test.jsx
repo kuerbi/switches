@@ -31,7 +31,7 @@ describe("switches reducer", () => {
     // todo: we need more test cases especially from the corners
     const newState1 = switchesReducer(state1, toggleSwitch(1,1));
 
-    expect(newState1).eql([
+    expect(newState1.switches).eql([
       [0,1,0,0,0],
       [1,0,0,1,0],
       [0,0,0,1,0],
@@ -39,7 +39,7 @@ describe("switches reducer", () => {
       [0,0,0,0,0]
     ]);
 
-    expect(switchesReducer(newState1, toggleSwitch(1,1))).eql([
+    expect(switchesReducer(newState1, toggleSwitch(1,1)).switches).eql([
       [0,0,0,0,0],
       [0,1,1,1,0],
       [0,1,0,1,0],

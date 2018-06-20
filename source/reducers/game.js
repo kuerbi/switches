@@ -1,4 +1,4 @@
-import { NEW_GAME, ABORT_GAME, WIN_GAME } from "constants/actionTypes"
+import { NEW_GAME, ABORT_GAME, WIN_GAME, RESTART_GAME } from "constants/actionTypes"
 
 export default function gameReducer(state = "not_running", action) {
   switch(action.type) {
@@ -8,7 +8,8 @@ export default function gameReducer(state = "not_running", action) {
     case ABORT_GAME: {
       return "not_running"
     } break;
-    case NEW_GAME: {
+    case NEW_GAME:
+    case RESTART_GAME: {
       return "running"
     } break;
     default:

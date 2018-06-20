@@ -12,7 +12,10 @@ import { startingPatterns } from "constants/patterns"
 
 const initialState = {
   game: "not_running",
-  fields: startingPatterns[0],
+  fields: {
+    patternId: 0,
+    switches: startingPatterns[0]
+  },
   counter: 0
 }
 

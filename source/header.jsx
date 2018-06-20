@@ -1,11 +1,12 @@
 //@flow
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { abortGame } from "actions"
+import { abortGame, restartGame } from "actions"
 
 type Props = {
   game: any;
   abortGame: any;
+  restartGame: any;
 }
 export class Header extends Component<Props> {
   renderTitle() {
@@ -26,18 +27,35 @@ export class Header extends Component<Props> {
     this.props.abortGame();
   }
 
+  handleRestart(event: any) {
+    event.preventDefault();
+
+    this.props.restartGame();
+  }
+
   renderHeaderRight() {
     const { game } = this.props;
-    
-    if (game === "not_running") {
-      return;
-    } else if(game === "running") {
-      return (
-        <div className={"header__right"}>
-          <a className={"action"} href="#" onClick={this.handleAbort.bind(this)}>Abort</a>
-        </div>
-      );
+
+    switch(game) {
+      case "not_running": {
+        return;
+      };
+      case "running": {
+        return (
+          <div className={"header__right"}>
+            <a className={"action"} href="#" onClick={this.handleAbort.bind(this)}>Abort</a>
+          </div>
+        );
+      }
+      case "victory": {
+        return (
+          <div className={"header__right"}>
+            <a className={"action"} href="#" onClick={this.handleRestart.bind(this)}>Restart</a>
+          </div>
+        );
+      }
     }
+  
   }
 
   render() {
@@ -58,7 +76,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    abortGame: () => dispatch(abortGame())
+    abortGame: () => dispatch(abortGame()),
+    restartGame: () => dispatch(restartGame())
   }
 }
 
