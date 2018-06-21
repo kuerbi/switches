@@ -3,7 +3,7 @@ import { TOGGLE_SWITCH, NEW_GAME, RESTART_GAME } from "constants/actionTypes"
 
 export type CounterState = number;
 
-export default function counterReducer(state: CounterState = 0, action: { type: string, payload: any }) {
+export default function counterReducer(state: CounterState = 0, action: Action) {
   switch(action.type) {
     case NEW_GAME:
     case RESTART_GAME: {

@@ -11,7 +11,7 @@ export type SwitchesState = {
 
 export default function switchesReducer(
   state: SwitchesState = { patternId: 0, switches: [] }, 
-  action: { type: string, payload: any }
+  action: Action
 ) {
   switch(action.type) {
     case ABORT_GAME: {
