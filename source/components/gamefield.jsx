@@ -2,6 +2,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { move, playerWins } from "actions"
+import type { Dispatch } from "redux"
 import type { AppState } from "reducers"
 import type { SwitchesState } from "reducers/switches"
 import type  { GameState } from "reducers/game"
@@ -51,11 +52,11 @@ function mapStateToProps(state: AppState) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     move: (r,c) => dispatch(move(r,c)),
     playerWins: () => dispatch(playerWins())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameField);
+export default connect(mapStateToProps, mapDispatchToProps)(GameField)

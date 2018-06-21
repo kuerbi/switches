@@ -2,12 +2,13 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { abortGame, restartGame } from "actions"
-import type { GameState } from "reducers/game";
+import type { Dispatch } from "redux"
+import type { GameState } from "reducers/game"
 
 type Props = {
   game: any;
-  abortGame: any;
-  restartGame: any;
+  abortGame: () => void;
+  restartGame: () => void;
 }
 export class Header extends Component<Props> {
   renderTitle() {
@@ -56,7 +57,6 @@ export class Header extends Component<Props> {
         );
       }
     }
-  
   }
 
   render() {
@@ -75,11 +75,11 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     abortGame: () => dispatch(abortGame()),
     restartGame: () => dispatch(restartGame())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

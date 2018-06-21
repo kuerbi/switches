@@ -2,6 +2,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { newGame } from "actions"
+import type { Dispatch } from "redux"
 import type { AppState } from "reducers"
 import type { CounterState } from "reducers/counter"
 import type { GameState } from "reducers/game"
@@ -38,7 +39,7 @@ function mapStateToProps(state: AppState) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     newGame: () => dispatch(newGame())
   }
