@@ -1,8 +1,18 @@
+// @flow
 import { TOGGLE_SWITCH, NEW_GAME, ABORT_GAME } from "constants/actionTypes"
 import { startingPatterns } from "constants/patterns"
-import { RESTART_GAME } from "../constants/actionTypes";
+import { RESTART_GAME } from "../constants/actionTypes"
 
-export default function switchesReducer(state = { patternId: 0, switches: [] }, action) {
+export type SwitchesState = {
+  patternId: number;
+  // todo: switches: Array<Array<Number>>
+  switches: any
+}
+
+export default function switchesReducer(
+  state: SwitchesState = { patternId: 0, switches: [] }, 
+  action: { type: string, payload: any }
+) {
   switch(action.type) {
     case ABORT_GAME: {
       return { switches: startingPatterns[0], patternId: 0 }

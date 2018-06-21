@@ -2,9 +2,10 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { move, playerWins } from "actions"
-import type { GameState } from "reducers/game";
+import type { AppState } from "reducers"
+import type { SwitchesState } from "reducers/switches"
+import type  { GameState } from "reducers/game"
 
-// TODO: set props correct
 type Props = {
   game: GameState,
   switches: any,
@@ -43,7 +44,7 @@ export class GameField extends Component<Props> {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: AppState) {
   return {
     game: state.game,
     switches: state.fields.switches

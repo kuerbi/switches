@@ -3,7 +3,7 @@ import { NEW_GAME, ABORT_GAME, WIN_GAME, RESTART_GAME } from "constants/actionTy
 
 export type GameState = "not_running" | "running" | "victory";
 
-export default function gameReducer(state: GameState = "not_running", action: any) {
+export default function gameReducer(state: GameState = "not_running", action: { type: string, payload: mixed }) {
   switch(action.type) {
     case WIN_GAME: {
       return "victory"

@@ -2,11 +2,13 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { newGame } from "actions"
+import type { AppState } from "reducers"
+import type { CounterState } from "reducers/counter"
 import type { GameState } from "reducers/game"
 
 type Props = {
   game: GameState,
-  counter: number,
+  counter: CounterState,
   newGame: () => void
 }
 export class Footer extends Component<Props> {
@@ -29,7 +31,7 @@ export class Footer extends Component<Props> {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: AppState) {
   return {
     game: state.game,
     counter: state.counter
