@@ -22,6 +22,6 @@ describe("Gamefield component", () => {
   })
 
   it("shows 25 switches", () => {
-    expect(wrapper.find(".pattern")).to.have.length(25);
+    expect(wrapper.find(".tile")).to.have.length(25);
   });
 });

@@ -8,7 +8,7 @@ import type { AppState } from "reducers"
 const initialState: AppState = {
   game: "not_running",
   fields: {
-    patternId: 0,
+    tileId: 0,
     switches: startingPatterns[0]
   },
   counter: 0

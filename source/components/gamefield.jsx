@@ -21,14 +21,14 @@ export class GameField extends Component<Props> {
   render() {
     const { switches, game } = this.props;
 
-    let patterns = [];
+    let tiles = [];
 
     for(let r: number = 0; r < switches.length; r++) {
       for(let c: number = 0; c < switches[0].length; c++) {
-        patterns.push(
+        tiles.push(
           <div 
-            key={"pattern_" + r + c} 
-            className={"pattern" + (switches[r][c] == 1 ? " pattern--on":"") + (game == "victory" ? " pattern--victory":"")} 
+            key={"tile_" + r + c} 
+            className={"tile" + (switches[r][c] == 1 ? " tile--turned":"") + (game == "victory" ? " tile--victory":"")} 
             onClick={this.handlePlayerTurn.bind(this, r, c)}>
           </div>
         );
@@ -38,7 +38,7 @@ export class GameField extends Component<Props> {
     return (
       <div className={"gameField-wrapper"}>
         <div className={"gameField"}>
-          {patterns}
+          {tiles}
         </div>
       </div>
     )

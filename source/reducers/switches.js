@@ -4,28 +4,28 @@ import { startingPatterns } from "constants/patterns"
 import { RESTART_GAME } from "../constants/actionTypes"
 
 export type SwitchesState = {
-  patternId: number;
+  tileId: number;
   // todo: switches: Array<Array<Number>>
   switches: any
 }
 
 export default function switchesReducer(
-  state: SwitchesState = { patternId: 0, switches: [] }, 
+  state: SwitchesState = { tileId: 0, switches: [] }, 
   action: Action
 ) {
   switch(action.type) {
     case ABORT_GAME: {
-      return { switches: startingPatterns[0], patternId: 0 }
+      return { switches: startingPatterns[0], tileId: 0 }
     };
 
     case NEW_GAME: {
-      const patternId = 1 + Math.floor(Math.random() * (startingPatterns.length - 1));
+      const tileId = 1 + Math.floor(Math.random() * (startingPatterns.length - 1));
 
-      return { switches: startingPatterns[patternId], patternId }
+      return { switches: startingPatterns[tileId], tileId }
     };
 
     case RESTART_GAME: {
-      return { switches: startingPatterns[state.patternId], patternId: state.patternId }
+      return { switches: startingPatterns[state.tileId], tileId: state.tileId }
     }
 
     case TOGGLE_SWITCH: {
@@ -44,7 +44,7 @@ export default function switchesReducer(
         return columns;
       }));
 
-      return { switches, patternId: state.patternId }
+      return { switches, tileId: state.tileId }
     };
     default:
       return state;

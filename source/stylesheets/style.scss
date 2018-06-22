@@ -13,8 +13,8 @@ $gamefield-columns: 5;
 $gamefield-grid-color: #e7e7ea;
 $gamefield-gap: 5px;
 
-$pattern-size: 65px;
-$pattern-bg: #ececee;
+$tile-size: 65px;
+$tile-bg: #ececee;
 
 
 $game-shadow-color: rgba(0,0,0,0.32);
@@ -71,11 +71,11 @@ body, html {
 
 .gameField {
   display: grid;
-  width: (($pattern-size + $gamefield-gap) * $gamefield-columns) - $gamefield-gap;
-  height: ($pattern-size + $gamefield-gap) * $gamefield-rows;
+  width: (($tile-size + $gamefield-gap) * $gamefield-columns) - $gamefield-gap;
+  height: ($tile-size + $gamefield-gap) * $gamefield-rows;
   background-color: $gamefield-grid-color;
 
-  // $pattern-size
+  // $tile-size
   grid-template-columns: 65px 65px 65px 65px 65px;
   grid-gap: $gamefield-gap;
   border: $gamefield-gap solid $gamefield-grid-color;
@@ -86,20 +86,20 @@ body, html {
   padding-top: 20px;
   padding-bottom: 20px;
   justify-content: center;
-  background-color: $pattern-bg
+  background-color: $tile-bg
 }
 
-.pattern {
-  width: $pattern-size;
-  height: $pattern-size;
-  background-color: $pattern-bg;
+.tile {
+  width: $tile-size;
+  height: $tile-size;
+  background-color: $tile-bg;
 }
 
-.pattern--on {
+.tile--turned {
   background-color: #8a85be;
 }
 
-.pattern--victory {
+.tile--victory {
   background-color: lightblue;
 }
 

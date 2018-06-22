@@ -20,7 +20,7 @@ describe("Game reducer", () => {
 
 describe("Switches reducer", () => {
   const state1 = {
-    patternId: 1,
+    tileId: 1,
     switches: [
       [0,0,0,0,0],
       [0,1,1,1,0],

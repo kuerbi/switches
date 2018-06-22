@@ -45,7 +45,7 @@ describe("move action", () => {
       const initialState = {
         game: "not_running",
         fields: {
-          patternId: 0,
+          tileId: 0,
           switches: [[1]]
         },
       };
@@ -62,7 +62,7 @@ describe("move action", () => {
       const initialState = {
         game: "running",
         fields: {
-          patternId: 0,
+          tileId: 0,
           switches: [
             [0,0,0,0,0],
             [0,1,1,1,0],
