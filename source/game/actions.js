@@ -28,3 +28,9 @@ export function abortGame(): Action {
     type: actionTypes.ABORT_GAME
   }
 }
+
+export function hasWonGame(): Action {
+  return {
+    type: actionTypes.HAS_WON_GAME
+  }
+}

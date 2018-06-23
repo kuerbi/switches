@@ -33,4 +33,10 @@ describe("Actions", () => {
       type: actionTypes.ABORT_GAME
     })
   });
+
+  it("should create an action to has won the game?", () => {
+    expect(actions.hasWonGame()).eql({
+      type: actionTypes.HAS_WON_GAME
+    });
+  });
 });

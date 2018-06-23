@@ -76,4 +76,36 @@ describe("Reducers", () => {
       ]
     })
   });
+
+  it("should handle WIN_GAME", () => {
+    let newState = reducer({
+      gameState: "running",
+      currentTileId: 2,
+      counter: 20,
+      tiles: [
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1]
+      ]
+    }, actions.hasWonGame());
+
+    expect(newState.gameState).equals("victory");
+
+    newState = reducer({
+      gameState: "running",
+      currentTileId: 2,
+      counter: 20,
+      tiles: [
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,0]
+      ]
+    }, actions.hasWonGame());
+
+    expect(newState.gameState).equals("running");
+  });
 })

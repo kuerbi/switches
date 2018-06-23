@@ -60,6 +60,21 @@ export default function reducer(state: State = initialState, action: Action): St
         counter: 0 
       }
     }
+    case actionTypes.HAS_WON_GAME: {
+      function checkWon(): boolean {
+        for(let r = 0; r < state.tiles.length; r++) {
+          for(let c = 0; c < state.tiles[0].length; c++) {
+            if(state.tiles[r][c] === 0) {
+              return false;
+            }
+          }
+        }
+    
+        return true;
+      }
+
+      return checkWon() ? { ...state, gameState: "victory" } : state;
+    }
     default:
       return state;
   }
