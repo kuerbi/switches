@@ -20,7 +20,7 @@ export class GameBoard extends React.Component<Props> {
   renderTiles() {
     const { tiles } = this.props;
 
-    let _renderTiles: Array<any> = [];
+    let _renderTiles: Array<React.Element<any>> = [];
 
     for(let row: number = 0; row < tiles.length; row++) {
       for(let column: number = 0; column < tiles[0].length; column++) {
