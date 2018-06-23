@@ -6,6 +6,7 @@ import Header from "components/header"
 import Footer from "components/footer"
 import GameField from "components/gamefield"
 
+// @deprecated
 export default class App extends Component {
   render() {
     return (
