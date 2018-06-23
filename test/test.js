@@ -7,6 +7,7 @@ Enzyme.configure({ adapter: new Adapter() })
 // You can list more individual test files here:
 require("game/tests/reducers-test")
 require("game/tests/actions-test")
+require("game/components/tests/counter-test")
 
 
 // require("app_test")
