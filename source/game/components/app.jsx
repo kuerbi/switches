@@ -4,7 +4,7 @@ import Counter from "./counter"
 import { Provider } from "react-redux"
 import { createStore } from "redux"
 import reducer, { initialState } from "../reducers"
-import { GameBoard } from "./gameboard";
+import GameBoard from "./gameboard"
 
 type Props = {}
 export default class App extends React.Component<Props> {
