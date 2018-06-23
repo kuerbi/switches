@@ -1,1 +1,1 @@
-declare type Action = { type: string, payload: any }
+// declare type Action = { type: string }

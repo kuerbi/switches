@@ -1,5 +1,4 @@
 import React from "react"
-import { expect } from "chai"
 import { shallow } from "enzyme"
 
 import App from "app"
@@ -9,7 +8,7 @@ import GameField from "components/gamefield"
 
 describe("App component", () => {
   let wrapper;
-  
+ 
   beforeEach(() => {
     wrapper = shallow(<App />);
   });
