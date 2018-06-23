@@ -2,7 +2,7 @@
 import chai from "chai"
 import reducer, { initialState } from "../reducers"
 import * as actions from "../actions"
-import { templates as tileTemplates } from "../tiles"
+import { templates as tileTemplates } from "tiles"
 
 const expect = chai.expect;
 

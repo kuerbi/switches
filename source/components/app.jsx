@@ -3,7 +3,7 @@ import * as React from "react"
 import Counter from "./counter"
 import { Provider } from "react-redux"
 import { createStore } from "redux"
-import reducer, { initialState } from "../reducers"
+import reducer, { initialState } from "state/reducers"
 import GameBoard from "./gameboard"
 
 type Props = {}

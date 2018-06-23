@@ -5,14 +5,7 @@ import chai from "chai"
 Enzyme.configure({ adapter: new Adapter() })
 
 // You can list more individual test files here:
-require("game/tests/reducers-test")
-require("game/tests/actions-test")
-require("game/components/tests/app-test")
-require("game/components/tests/counter-test")
-
-
-// require("app_test")
-// require("header_test")
-// require("actions_test")
-// require("gamefield_test")
-// require("reducers_test")
+require("state/tests/reducers-test")
+require("state/tests/actions-test")
+require("components/tests/app-test")
+require("components/tests/counter-test")

@@ -2,7 +2,7 @@
 import * as React from "react"
 import { connect } from "react-redux"
 import type { Tiles } from "../tiles"
-import type { State } from "../reducers"
+import type { State } from "state/reducers"
 
 type Props = {
   rows: number,

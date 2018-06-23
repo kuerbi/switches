@@ -1,8 +1,8 @@
 //@flow
 import actionTypes from "./types"
 import type { Action } from "./types"
-import { templates as tileTemplates } from "./tiles"
-import type { Tiles } from "./tiles"
+import { templates as tileTemplates } from "tiles"
+import type { Tiles } from "tiles"
 
 export type State = {
   +gameState: "not_running" | "running" | "victory",

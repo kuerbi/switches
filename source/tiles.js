@@ -1,5 +1,5 @@
 //@flow
-export type Tiles = Array<Array<0 | 1>>;
+export type Tiles = Array<Array<0 | 1>>
 
 export const templates: Array<Tiles> = [
 [
