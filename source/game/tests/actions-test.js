@@ -16,4 +16,15 @@ describe("Actions", () => {
       type: actionTypes.RESTART_GAME
     });
   });
+
+  it("should create an action to toggle a tile by row and column", () => {
+    const column = 4;
+    const row = 2;
+
+    expect(actions.toggleTile(row,column)).eql({
+      type: actionTypes.TOGGLE_TILE,
+      row,
+      column
+    })
+  });
 });

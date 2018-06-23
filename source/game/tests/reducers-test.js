@@ -25,4 +25,27 @@ describe("Reducers", () => {
     expect(newState.counter).equal(0);
     expect(newState.tiles).eql(tileTemplates[1]);
   });
+
+  it("should handle TOGGLE_TILE", () => {
+    const newState = reducer({
+      gameState: "running",
+      currentTileId: 1,
+      counter: 5,
+      tiles: [
+        [0,1,0,0,0],
+        [1,0,0,1,0],
+        [0,0,0,1,0],
+        [0,1,1,1,0],
+        [0,0,0,0,0]
+      ]
+    }, actions.toggleTile(2, 3));
+
+    expect(newState.tiles).eql([
+      [0,1,0,0,0],
+      [1,0,0,0,0],
+      [0,0,1,0,1],
+      [0,1,1,0,0],
+      [0,0,0,0,0]
+    ]);
+  });
 })

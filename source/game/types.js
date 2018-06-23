@@ -2,10 +2,12 @@
 
 type NewGameAction = { type: "game/new_game", tileId: number }
 type RestartGameAction = { type: "game/restart_game" }
+type ToggleTileAction = { type: "game/toggle_tile", row: number, column: number }
 
 export type Action = 
   | NewGameAction
   | RestartGameAction
+  | ToggleTileAction
 
 const ABORT_GAME = "game/abort_game"
 const NEW_GAME = "game/new_game"

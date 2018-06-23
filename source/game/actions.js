@@ -14,3 +14,11 @@ export function restartGame(): Action {
     type: actionTypes.RESTART_GAME
   }
 }
+
+export function toggleTile(row: number, column: number): Action {
+  return {
+    type: actionTypes.TOGGLE_TILE,
+    row,
+    column
+  }
+}

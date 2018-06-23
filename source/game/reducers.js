@@ -33,6 +33,21 @@ export default function reducer(state: State = initialState, action: Action): St
     case actionTypes.RESTART_GAME: {
       return { ...state, tiles: tileTemplates[state.currentTileId], counter: 0 }
     }
+    case actionTypes.TOGGLE_TILE: {
+      const newTiles: Tiles = state.tiles.map((rows, rowIndex) => rows.map((columns, columnIndex) => {
+        if((rowIndex === action.row && columnIndex === action.column) ||
+          (rowIndex-1 === action.row && columnIndex === action.column) ||
+          (rowIndex+1 === action.row && columnIndex === action.column) ||
+          (rowIndex === action.row && columnIndex+1 === action.column) ||
+          (rowIndex === action.row && columnIndex-1 === action.column)) {
+            return (columns === 0) ? 1:0;
+        }
+
+        return columns;
+      }));
+
+      return { ...state, tiles: newTiles }
+    }
     default:
       return state;
   }
