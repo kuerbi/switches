@@ -10,4 +10,10 @@ describe("Actions", () => {
       tileId: 2
     });
   });
+
+  it("should create an action to restart the game", () => {
+    expect(actions.restartGame()).eql({
+      type: actionTypes.RESTART_GAME
+    });
+  });
 });

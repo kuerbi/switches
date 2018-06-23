@@ -1,8 +1,11 @@
 //@flow
-export type NewGameAction = { type: string, tileId: number }
+
+type NewGameAction = { type: "game/new_game", tileId: number }
+type RestartGameAction = { type: "game/restart_game" }
 
 export type Action = 
-  | NewGameAction;
+  | NewGameAction
+  | RestartGameAction
 
 const ABORT_GAME = "game/abort_game"
 const NEW_GAME = "game/new_game"
