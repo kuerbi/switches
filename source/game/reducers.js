@@ -31,7 +31,11 @@ export default function reducer(state: State = initialState, action: Action): St
       };
     }
     case actionTypes.RESTART_GAME: {
-      return { ...state, tiles: tileTemplates[state.currentTileId], counter: 0 }
+      return { 
+        ...state, 
+        counter: 0,
+        tiles: tileTemplates[state.currentTileId]
+      }
     }
     case actionTypes.TOGGLE_TILE: {
       const newTiles: Tiles = state.tiles.map((rows, rowIndex) => rows.map((columns, columnIndex) => {
@@ -47,6 +51,14 @@ export default function reducer(state: State = initialState, action: Action): St
       }));
 
       return { ...state, tiles: newTiles }
+    }
+    case actionTypes.ABORT_GAME: {
+      return { 
+        gameState: "not_running", 
+        tiles: tileTemplates[0], 
+        currentTileId: 0, 
+        counter: 0 
+      }
     }
     default:
       return state;

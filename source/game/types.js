@@ -1,10 +1,12 @@
 //@flow
 
+type AbortGameAction = { type: "game/abort_game" }
 type NewGameAction = { type: "game/new_game", tileId: number }
 type RestartGameAction = { type: "game/restart_game" }
 type ToggleTileAction = { type: "game/toggle_tile", row: number, column: number }
 
 export type Action = 
+  | AbortGameAction
   | NewGameAction
   | RestartGameAction
   | ToggleTileAction

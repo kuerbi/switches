@@ -22,3 +22,9 @@ export function toggleTile(row: number, column: number): Action {
     column
   }
 }
+
+export function abortGame(): Action {
+  return {
+    type: actionTypes.ABORT_GAME
+  }
+}

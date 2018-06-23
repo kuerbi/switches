@@ -48,4 +48,32 @@ describe("Reducers", () => {
       [0,0,0,0,0]
     ]);
   });
+
+  it("should handle ABORT_GAME", () => {
+    const newState = reducer({
+      gameState: "running",
+      currentTileId: 1,
+      counter: 5,
+      tiles: [
+        [0,1,0,0,0],
+        [1,0,0,1,0],
+        [0,0,0,1,0],
+        [0,1,1,1,0],
+        [0,0,0,0,0]
+      ]
+    }, actions.abortGame());
+
+    expect(newState).eql({
+      gameState: "not_running",
+      currentTileId: 0,
+      counter: 0,
+      tiles: [
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0]
+      ]
+    })
+  });
 })

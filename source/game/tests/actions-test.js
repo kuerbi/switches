@@ -27,4 +27,10 @@ describe("Actions", () => {
       column
     })
   });
+
+  it("should create an action to abort the game", () => {
+    expect(actions.abortGame()).eql({
+      type: actionTypes.ABORT_GAME
+    })
+  });
 });
