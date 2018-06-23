@@ -2,26 +2,20 @@ body, html {
   font-family: sans-serif
 }
 
-$tile-size: 65px;
-$tile-border: 5px;
-$gameboard-columns: 5;
-$gameboard-rows: 5;
-$gameboard-width: ($tile-size + ($tile-border * 2)) * $gameboard-columns;
-$gameboard-height:  ($tile-size + ($tile-border * 2)) * $gameboard-rows;
-.gameboard {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: - ($gameboard-width / 2);
-  margin-top: - ($gameboard-height / 2);
-  width: $gameboard-width;
-  height: $gameboard-height;
+@import "gameboard";
+@import "header";
+@import "game";
+@import "footer";
+@import "footer";
+@import "button";
 
-  &__tile {
-    float: left;
-    width: $tile-size;
-    height: $tile-size;
-    background-color: #ececee;
-    border: $tile-border solid #e7e7ea;
-  }
+.title {
+  text-transform: uppercase;
+  color: #909095;
+  font-weight: 300;
+}
+
+.link {
+  color: #e390c3;
+  text-transform: uppercase;
 }

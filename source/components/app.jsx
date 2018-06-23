@@ -13,7 +13,24 @@ export default class App extends React.Component<Props> {
 
     return (
       <Provider store={store}>
-        <GameBoard></GameBoard>
+        <div class="game">
+          <div className="header">
+            <h1 className="header__title title">
+              Switches
+            </h1>
+            <div className="header__right">
+              <a href="#" className="link">Abort</a>
+            </div>
+          </div>
+          <div className="game__main">
+            <GameBoard></GameBoard>
+          </div>
+          <div className="footer">
+            <div className="footer__action">
+              <button className="button">New Game</button>
+            </div>
+          </div>
+        </div>
       </Provider>
     );
   }
