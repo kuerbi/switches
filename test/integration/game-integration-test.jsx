@@ -46,6 +46,7 @@ describe("App integration", () => {
   }
 
   let wrapper;
+  let gameWrapper;
 
   context("game is running", () => {
     beforeEach(() => {
@@ -54,6 +55,7 @@ describe("App integration", () => {
           <Game />
         </Root>
       );
+      gameWrapper = wrapper.find(Game);
     });
 
     afterEach(() => {
@@ -61,18 +63,16 @@ describe("App integration", () => {
     });
 
     it("shows a header with title and abort link", () => {
-      expect(wrapper.find(".header").children()).to.have.length(2);
-      expect(wrapper.find(".link").text()).equal("Abort");
+      expect(gameWrapper.find(".header").children()).to.have.length(2);
+      expect(gameWrapper.find(".link").text()).equal("Abort");
     });
 
     it("shows a counter and not the New Game button", () => {
-      expect(wrapper.find(".button")).to.have.length(0);
-      expect(wrapper.find(Counter)).to.have.length(1);
+      expect(gameWrapper.find(".button")).to.have.length(0);
+      expect(gameWrapper.find(Counter)).to.have.length(1);
     });
 
     it("click on Abort...", () => {
-      const gameWrapper = wrapper.find(Game);
-
       gameWrapper.find(".link").simulate("click");
       wrapper.update();
 
@@ -89,6 +89,7 @@ describe("App integration", () => {
           <Game />
         </Root>
       );
+      gameWrapper = wrapper.find(Game);
     });
 
     afterEach(() => {
@@ -96,12 +97,10 @@ describe("App integration", () => {
     });
 
     it("shows a header with only a title", () => {
-      expect(wrapper.find(".header").children()).to.have.length(1);
+      expect(gameWrapper.find(".header").children()).to.have.length(1);
     });
 
     it("click on 'New Game' starts the game", () => {
-      const gameWrapper = wrapper.find(Game);
-
       gameWrapper.find(".button").simulate("click");
       wrapper.update();
 
