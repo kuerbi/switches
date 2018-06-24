@@ -17,18 +17,39 @@ describe("App integration", () => {
     [0,1,0,1,0],
     [1,0,0,0,1]
   ];
+
+  const zeroTiles = [
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0],
+    [0,0,0,0,0]
+  ];
+  
+  const RunningState = {
+    ...initialState,
+    gameState: "running",
+    tiles: demoTiles
+  }
+
+  const NotRunningState = {
+    ...initialState,
+    gameState: "not_running",
+    tiles: zeroTiles
+  }
+
+  const VictoryState = {
+    ...initialState,
+    gameState: "victory",
+    tiles: zeroTiles
+  }
+
   let wrapper;
 
   context("game is running", () => {
     beforeEach(() => {
-      const gameIsRunningState = {
-        ...initialState,
-        gameState: "running",
-        tiles: demoTiles
-      }
-
       wrapper = mount(
-        <Root initialState={{...initialState, gameState: "running"}}>
+        <Root initialState={RunningState}>
           <Game />
         </Root>
       );
@@ -47,7 +68,7 @@ describe("App integration", () => {
   context("game is not running", () => {
     beforeEach(() => {
       wrapper = mount(
-        <Root initialState={{...initialState, gameState: "not_running"}}>
+        <Root initialState={NotRunningState}>
           <Game />
         </Root>
       );
@@ -59,6 +80,20 @@ describe("App integration", () => {
 
     it("shows a header with only a title", () => {
       expect(wrapper.find(".header").children()).to.have.length(1);
+    });
+  });
+
+  context("game victory", () => {
+    beforeEach(() => {
+      wrapper = mount(
+        <Root initialState={VictoryState}>
+          <Game />
+        </Root>
+      );
+    });
+
+    afterEach(() => {
+      wrapper.unmount();
     });
   });
 });
