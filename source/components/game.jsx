@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import type { State } from "state/reducers"
 import GameBoard from "./gameboard"
 import NewGameButton from "./newGameButton"
+import Counter from "./counter"
 import * as actions from "state/actions"
 import { templates } from "tiles"
 
@@ -40,6 +41,14 @@ export class Game extends React.Component<Props> {
     )
   }
 
+  renderButtonOrCounter() {
+    if(this.props.gameState == "not_running") {
+      return <button className="button" onClick={this.handleClickNewGame}>New Game</button>;
+    } else {
+      return <Counter></Counter>
+    }
+  }
+
   render() {
     return (
       <div className="game">
@@ -49,7 +58,7 @@ export class Game extends React.Component<Props> {
           </div>
           <div className="footer">
             <div className="footer__action">
-              <button className="button" onClick={this.handleClickNewGame}>New Game</button>
+              {this.renderButtonOrCounter()}
             </div>
           </div>
         </div>

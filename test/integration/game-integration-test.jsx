@@ -63,6 +63,10 @@ describe("App integration", () => {
       expect(wrapper.find(".header").children()).to.have.length(2);
       expect(wrapper.find(".link").text()).equal("Abort");
     });
+
+    it("shows a counter and not the New Game button", () => {
+      expect(wrapper.find(".button")).to.have.length(0);
+    });
   });
 
   context("game is not running", () => {
