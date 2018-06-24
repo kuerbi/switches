@@ -20,6 +20,11 @@ export const initialState: State = {
 
 export default function reducer(state: State = initialState, action: Action): State {
   switch(action.type) {
+    case actionTypes.INCREMENT_COUNTER: {
+      const counter = state.counter + 1;
+
+      return { ...state, counter: counter }
+    }
     case actionTypes.NEW_GAME: {
       const currentTileId = action.tileId;
 

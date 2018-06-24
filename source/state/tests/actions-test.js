@@ -39,4 +39,10 @@ describe("Actions", () => {
       type: actionTypes.HAS_WON_GAME
     });
   });
+
+  it("should create an action to increment counter", () => {
+    expect(actions.incrementCounter()).eql({
+      type: actionTypes.INCREMENT_COUNTER
+    });
+  });
 });

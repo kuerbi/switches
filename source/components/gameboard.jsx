@@ -21,6 +21,7 @@ export class GameBoard extends React.Component<Props> {
   handleClickTile = (row: number, column: number, event: any) => {
     if(this.props.gameState === "running") {
       this.props.toggleTile(row, column);
+      this.props.incrementCounter();
     }
   }
 

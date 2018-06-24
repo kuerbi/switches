@@ -2,6 +2,12 @@
 import actionTypes from "./types"
 import type { Action } from "./types"
 
+export function incrementCounter(): Action {
+  return {
+    type: actionTypes.INCREMENT_COUNTER
+  }
+}
+
 export function newGame(tileId: number): Action {
   return {
     type: actionTypes.NEW_GAME,

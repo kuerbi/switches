@@ -108,4 +108,21 @@ describe("Reducers", () => {
 
     expect(newState.gameState).equals("running");
   });
+
+  it("should handle INCREMENT_COUNTER", () => {
+    const newState = reducer({
+      gameState: "running",
+      currentTileId: 2,
+      counter: 20,
+      tiles: [
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1],
+        [1,1,1,1,1]
+      ]
+    }, actions.incrementCounter());
+
+    expect(newState.counter).equal(21);
+  });
 })

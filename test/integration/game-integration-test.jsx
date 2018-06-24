@@ -88,6 +88,15 @@ describe("App integration", () => {
       tile.simulate("click");
       wrapper.update();
     });
+
+    it("increments the counter", () => {
+      const tile = gameWrapper.find(".tile--off").at(5)
+
+      tile.simulate("click");
+      wrapper.update();
+
+      expect(gameWrapper.find(Counter).text()).contain("1");
+    });
   });
 
   context("game is not running", () => {
