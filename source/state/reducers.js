@@ -37,7 +37,7 @@ export default function reducer(state: State = initialState, action: Action): St
     }
     case actionTypes.RESTART_GAME: {
       return { 
-        ...state, 
+        ...state,
         counter: 0,
         tiles: tileTemplates[state.currentTileId]
       }

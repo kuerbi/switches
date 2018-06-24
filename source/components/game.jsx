@@ -26,6 +26,12 @@ export class Game extends React.Component<Props> {
     this.props.abortGame();
   };
 
+  handleClickRestartGame =  (event: SyntheticEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    this.props.restartGame();
+  };
+
   renderHeader() {
     let headerRight = null;
 
@@ -33,6 +39,12 @@ export class Game extends React.Component<Props> {
       headerRight = (
         <div className="header__right">
           <a href="#" className="link" onClick={this.handleClickAbortGame}>Abort</a>
+        </div>
+      );
+    } else if(this.props.gameState == "victory") {
+      headerRight = (
+        <div className="header__right">
+          <a href="#" className="link" onClick={this.handleClickRestartGame}>Restart</a>
         </div>
       );
     }

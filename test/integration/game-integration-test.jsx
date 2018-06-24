@@ -134,10 +134,16 @@ describe("App integration", () => {
           <Game />
         </Root>
       );
+      gameWrapper = wrapper.find(Game);
     });
 
     afterEach(() => {
       wrapper.unmount();
+    });
+
+    it("shows a header with title and restart link", () => {
+      expect(gameWrapper.find(".header").children()).to.have.length(2);
+      expect(gameWrapper.find(".link").text()).equal("Restart");
     });
   });
 });

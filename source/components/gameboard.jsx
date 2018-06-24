@@ -22,10 +22,11 @@ export class GameBoard extends React.Component<Props> {
     if(this.props.gameState === "running") {
       this.props.toggleTile(row, column);
       this.props.incrementCounter();
+      this.props.hasWonGame();
     }
   }
 
-  renderTiles() {
+  renderTiles() {    
     const { tiles } = this.props;
 
     let _renderTiles: Array<React.Element<any>> = [];
