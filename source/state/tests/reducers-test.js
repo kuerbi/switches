@@ -16,7 +16,7 @@ describe("Reducers", () => {
 
   it("should handle RESTART_GAME", () => {
     const newState = reducer({
-      gameState: "running",
+      gameState: "victory",
       currentTileId: 1,
       counter: 5,
       tiles: [[0]],
@@ -24,6 +24,8 @@ describe("Reducers", () => {
 
     expect(newState.counter).equal(0);
     expect(newState.tiles).eql(tileTemplates[1]);
+    expect(newState.gameState).eql("running");
+
   });
 
   it("should handle TOGGLE_TILE", () => {
