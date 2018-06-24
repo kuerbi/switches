@@ -7,7 +7,7 @@ import type { State } from "state/reducers"
 
 
 type Props = {
-  children: any,
+  children?: any,
   initialState?: State
 }
 export default class Root extends React.Component<Props>{
@@ -16,7 +16,7 @@ export default class Root extends React.Component<Props>{
   }
 
   render() {
-    const store = createStore(reducer, initialState);
+    const store = createStore(reducer, this.props.initialState);
 
     return (
       <Provider store={store}>
