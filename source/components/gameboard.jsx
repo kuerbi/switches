@@ -3,6 +3,7 @@ import * as React from "react"
 import { connect } from "react-redux"
 import type { Tiles } from "../tiles"
 import type { State } from "state/reducers"
+import * as actions from "state/actions"
 
 type Props = {
   rows: number,
@@ -15,6 +16,12 @@ export class GameBoard extends React.Component<Props> {
     rows: 5,
     columns: 5,
     gameState: ""
+  }
+
+  handleClickTile = (row: number, column: number, event: any) => {
+    if(this.props.gameState === "running") {
+      this.props.toggleTile(row, column);
+    }
   }
 
   renderTiles() {
@@ -31,7 +38,9 @@ export class GameBoard extends React.Component<Props> {
         _renderTiles.push(
           <div
             key={"tile#" + row + column}
-            className={`gameboard__tile ${tileSwitch} ${victory}`}>
+            className={`gameboard__tile ${tileSwitch} ${victory}`}
+            onClick={this.handleClickTile.bind(this, row, column)}
+          >
           </div>
         );
       }
@@ -51,8 +60,9 @@ export class GameBoard extends React.Component<Props> {
 
 function mapStateToProps(state: State) {
   return {
+    gameState: state.gameState,
     tiles: state.tiles
   }
 }
 
-export default connect(mapStateToProps)(GameBoard);
+export default connect(mapStateToProps, actions)(GameBoard);

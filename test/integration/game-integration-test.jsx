@@ -80,6 +80,14 @@ describe("App integration", () => {
 
       expect(state.gameState).equals("not_running");
     });
+
+
+    it("can toggle a tile: TODO", () => {
+      const tile = gameWrapper.find(".tile--off").at(5)
+
+      tile.simulate("click");
+      wrapper.update();
+    });
   });
 
   context("game is not running", () => {
