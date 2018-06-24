@@ -41,6 +41,7 @@ export class Game extends React.Component<Props> {
           <a href="#" className="link" onClick={this.handleClickAbortGame}>Abort</a>
         </div>
       );
+      title = "Tap a switch";
     } else if(this.props.gameState == "victory") {
       headerRight = (
         <div className="header__right">

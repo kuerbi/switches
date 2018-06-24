@@ -63,6 +63,7 @@ describe("App integration", () => {
     });
 
     it("shows a header with title and abort link", () => {
+      expect(gameWrapper.find(".title").text()).equal("Tap a switch");
       expect(gameWrapper.find(".header").children()).to.have.length(2);
       expect(gameWrapper.find(".link").text()).equal("Abort");
     });
