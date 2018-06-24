@@ -81,6 +81,17 @@ describe("App integration", () => {
     it("shows a header with only a title", () => {
       expect(wrapper.find(".header").children()).to.have.length(1);
     });
+
+    it("click on 'New Game' starts the game", () => {
+      const gameWrapper = wrapper.find(Game);
+
+      gameWrapper.find(".button").simulate("click");
+      wrapper.update();
+
+      const state: State = gameWrapper.instance().context.store.getState()
+
+      expect(state.gameState).equal("running");
+    });
   });
 
   context("game victory", () => {

@@ -5,9 +5,8 @@ import { createStore } from "redux"
 import reducer, { initialState } from "state/reducers"
 import type { State } from "state/reducers"
 
-
 type Props = {
-  children?: any,
+  children: any,
   initialState?: State
 }
 export default class Root extends React.Component<Props>{
