@@ -34,6 +34,7 @@ export class Game extends React.Component<Props> {
 
   renderHeader() {
     let headerRight = null;
+    let title = "Switches"
 
     if(this.props.gameState == "running") {
       headerRight = (
@@ -47,12 +48,13 @@ export class Game extends React.Component<Props> {
           <a href="#" className="link" onClick={this.handleClickRestartGame}>Restart</a>
         </div>
       );
+      title = "Victory";
     }
 
     return (
       <div className="header">
         <h1 className="header__title title">
-          Switches
+          {title}
         </h1>
         {headerRight}
       </div>

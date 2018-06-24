@@ -140,8 +140,11 @@ describe("App integration", () => {
     afterEach(() => {
       wrapper.unmount();
     });
+    
 
-    it("shows a header with title and restart link", () => {
+    it("shows a header with correct title and restart link", () => {
+      expect(gameWrapper.find(".header > .title").text()).equal("Victory");
+
       expect(gameWrapper.find(".header").children()).to.have.length(2);
       expect(gameWrapper.find(".link").text()).equal("Restart");
     });
