@@ -145,5 +145,9 @@ describe("App integration", () => {
       expect(gameWrapper.find(".header").children()).to.have.length(2);
       expect(gameWrapper.find(".link").text()).equal("Restart");
     });
+
+    it("shows tiles with tile--victory class", () => {
+      expect(gameWrapper.find(".tile--victory")).to.have.length(25);
+    });
   });
 });
