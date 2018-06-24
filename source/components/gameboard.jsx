@@ -21,13 +21,17 @@ export class GameBoard extends React.Component<Props> {
     const { tiles } = this.props;
 
     let _renderTiles: Array<React.Element<any>> = [];
+    let victory = this.props.gameState == "victory" ? "tile--victory":"";
+    let tileSwitch;
 
     for(let row: number = 0; row < tiles.length; row++) {
       for(let column: number = 0; column < tiles[0].length; column++) {
+        tileSwitch = tiles[row][column] == 0 ? "tile--off":"tile--on";
+
         _renderTiles.push(
           <div
             key={"tile#" + row + column}
-            className={"gameboard__tile tile"}>
+            className={`gameboard__tile ${tileSwitch} ${victory}`}>
           </div>
         );
       }
