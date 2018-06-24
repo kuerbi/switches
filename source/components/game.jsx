@@ -20,13 +20,19 @@ export class Game extends React.Component<Props> {
     this.props.newGame(this.randomLevel());
   }
 
+  handleClickAbortGame =  (event: SyntheticEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    this.props.abortGame();
+  };
+
   renderHeader() {
     let headerRight = null;
 
     if(this.props.gameState == "running") {
       headerRight = (
         <div className="header__right">
-          <a href="#" className="link">Abort</a>
+          <a href="#" className="link" onClick={this.handleClickAbortGame}>Abort</a>
         </div>
       );
     }

@@ -4,6 +4,7 @@ import chai from "chai"
 import { mount } from "enzyme"
 import Root from "components/root"
 import Game from "components/game"
+import Counter from "components/counter"
 import { initialState } from "state/reducers"
 import { templates } from "tiles"
 
@@ -66,6 +67,18 @@ describe("App integration", () => {
 
     it("shows a counter and not the New Game button", () => {
       expect(wrapper.find(".button")).to.have.length(0);
+      expect(wrapper.find(Counter)).to.have.length(1);
+    });
+
+    it("click on Abort...", () => {
+      const gameWrapper = wrapper.find(Game);
+
+      gameWrapper.find(".link").simulate("click");
+      wrapper.update();
+
+      const state: State = gameWrapper.instance().context.store.getState()
+
+      expect(state.gameState).equals("not_running");
     });
   });
 
