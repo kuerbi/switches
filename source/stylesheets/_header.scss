@@ -1,0 +1,18 @@
+.header {
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+}
+
+.header__right {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  line-height: 37px;
+}
+
+.header__title {
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
