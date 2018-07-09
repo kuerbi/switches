@@ -18,6 +18,17 @@ export class GameField extends Component<Props> {
     this.props.move(r,c);
   }
 
+  // Todo: Extract this method into a functional component when this component gets to big
+  renderTile(r: number, c: number, switches: any, game: GameState) {
+    return (
+      <div
+        key={"tile_" + r + c} 
+        className={"tile" + (switches[r][c] == 1 ? " tile--turned":"") + (game == "victory" ? " tile--victory":"")} 
+        onClick={this.handlePlayerTurn.bind(this, r, c)}>
+      </div>
+    );
+  }
+
   render() {
     const { switches, game } = this.props;
 
@@ -25,13 +36,7 @@ export class GameField extends Component<Props> {
 
     for(let r: number = 0; r < switches.length; r++) {
       for(let c: number = 0; c < switches[0].length; c++) {
-        tiles.push(
-          <div 
-            key={"tile_" + r + c} 
-            className={"tile" + (switches[r][c] == 1 ? " tile--turned":"") + (game == "victory" ? " tile--victory":"")} 
-            onClick={this.handlePlayerTurn.bind(this, r, c)}>
-          </div>
-        );
+        tiles.push(this.renderTile(r,c,switches, game));
       }
     }
 
