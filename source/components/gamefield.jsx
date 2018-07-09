@@ -14,7 +14,8 @@ type Props = {
 };
 export class GameField extends Component<Props> {
   handlePlayerTurn(r: number,c: number) {
-    this.props.move(r,c);
+    if(this.props.game == "running")
+      this.props.move(r,c);
   }
 
   // Todo: Extract this method into a functional component when this component gets to big
