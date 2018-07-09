@@ -44,14 +44,14 @@ export class Header extends Component<Props> {
       };
       case "running": {
         return (
-          <div className={"header__right"}>
+          <div className={"header__action"}>
             <a className={"action"} href="#" onClick={this.handleAbort.bind(this)}>Abort</a>
           </div>
         );
       }
       case "victory": {
         return (
-          <div className={"header__right"}>
+          <div className={"header__action"}>
             <a className={"action"} href="#" onClick={this.handleRestart.bind(this)}>Restart</a>
           </div>
         );
