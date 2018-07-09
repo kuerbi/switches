@@ -76,7 +76,7 @@ body, html {
   background-color: $gamefield-grid-color;
 
   // $tile-size
-  grid-template-columns: 65px 65px 65px 65px 65px;
+  grid-template-columns: $tile-size $tile-size $tile-size $tile-size $tile-size;
   grid-gap: $gamefield-gap;
   border: $gamefield-gap solid $gamefield-grid-color;
 }
