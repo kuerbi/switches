@@ -27,13 +27,7 @@ export function restartGame() {
 }
 
 export function move(row, column) {
-  return (dispatch, getState) => {
-    if(getState().game != "running") return;
-    
-    dispatch(toggleSwitch(row, column));
-
-    if(checkPlayerWin(getState().fields.switches)) dispatch(playerWins());
-  }
+  return toggleSwitch(row, column);
 }
 
 export function toggleSwitch(row, column) {

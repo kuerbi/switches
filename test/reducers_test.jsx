@@ -1,26 +1,13 @@
 import { expect } from "chai"
-import gameReducer from "reducers/game"
 import switchesReducer from "reducers/switches"
 import counterReducer from "reducers/counter"
 import { newGame, toggleSwitch, playerWins } from "actions"
 
-describe("Game reducer", () => {
-  it("should return initial state", () => {
-    expect(gameReducer(undefined, {})).equal("not_running");
-  });
-
-  it("should handle NEW_GAME", () => {
-    expect(gameReducer("not_running", newGame())).equal("running");
-  });
-
-  it("should handle WIN_GAME", () => {
-    expect(gameReducer("not_running", playerWins())).equal("victory");
-  });
-});
 
 describe("Switches reducer", () => {
   const state1 = {
     tileId: 1,
+    game: "running",
     switches: [
       [0,0,0,0,0],
       [0,1,1,1,0],
@@ -29,6 +16,14 @@ describe("Switches reducer", () => {
       [0,0,0,0,0]
     ]
   }
+
+  it("should handle NEW_GAME", () => {
+    expect(switchesReducer( {} , newGame()).game).eq("running");
+  });
+
+  it("should handle WIN_GAME", () => {
+    expect(switchesReducer("not_running", playerWins()).game).equal("victory");
+  });
 
   it("should handle TOGGLE_SWITCH", () => {
     // todo: we need more test cases especially from the corners

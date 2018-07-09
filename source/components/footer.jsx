@@ -4,8 +4,8 @@ import { connect } from "react-redux"
 import { newGame } from "actions"
 import type { Dispatch } from "redux"
 import type { AppState } from "reducers"
+import type { GameState } from "reducers/switches"
 import type { CounterState } from "reducers/counter"
-import type { GameState } from "reducers/game"
 
 type Props = {
   game: GameState,
@@ -14,9 +14,7 @@ type Props = {
 }
 export class Footer extends Component<Props> {
   renderButtonOrButtonsPressed() {
-    const game: GameState = this.props.game;
-
-    if(game === "not_running") {
+    if(this.props.game === "not_running") {
       return <button className={"button"} onClick={this.props.newGame}>New game</button>
     } else {
       return <span className={"footer__text"}>{this.props.counter + " buttons pressed"}</span>
@@ -34,7 +32,7 @@ export class Footer extends Component<Props> {
 
 function mapStateToProps(state: AppState) {
   return {
-    game: state.game,
+    game: state.fields.game,
     counter: state.counter
   }
 }

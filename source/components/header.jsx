@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { abortGame, restartGame } from "actions"
 import type { Dispatch } from "redux"
-import type { GameState } from "reducers/game"
+import type { GameState } from "reducers/switches"
 
 type Props = {
   game: any;
@@ -71,7 +71,7 @@ export class Header extends Component<Props> {
 
 function mapStateToProps(state) {
   return {
-    game: state.game
+    game: state.fields.game
   }
 }
 

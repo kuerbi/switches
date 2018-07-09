@@ -4,8 +4,7 @@ import { connect } from "react-redux"
 import { move, playerWins } from "actions"
 import type { Dispatch } from "redux"
 import type { AppState } from "reducers"
-import type { SwitchesState } from "reducers/switches"
-import type  { GameState } from "reducers/game"
+import type { SwitchesState, GameState} from "reducers/switches"
 
 type Props = {
   game: GameState,
@@ -52,7 +51,7 @@ export class GameField extends Component<Props> {
 
 function mapStateToProps(state: AppState) {
   return {
-    game: state.game,
+    game: state.fields.game,
     switches: state.fields.switches
   }
 }
